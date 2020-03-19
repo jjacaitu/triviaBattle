@@ -1,26 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
-function App() {
+import TopicSelection from "./TopicsSelection";
+import GameBoard from "./GameBoard"
+
+
+
+import {connect } from "react-redux"
+
+
+function App({ topics, players, question, turn  }) {
+
+  const [availableTopics, setTopics] = useState([]);
+  const [loading, setLoading] = useState(true)
+
+  async function fetchUrl(url) {
+    const response = await fetch(url);
+    const json = await response.json();
+    setTopics(json.trivia_categories);
+    setLoading(false);
+  }
+
+  useEffect(() => {
+    fetchUrl("https://opentdb.com/api_category.php");
+  }, []);
+  
+    
+  
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    loading ? <p>loading..</p> : topics.length ? <GameBoard/> : <TopicSelection availableTopics={availableTopics} />
+
+     
+    
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    topics: state.topics,
+    players: state.players,
+    question: state.question,
+    turn: state.turn
+  }
+}
+
+export default connect(mapStateToProps, null)(App);
