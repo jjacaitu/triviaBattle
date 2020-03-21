@@ -1,15 +1,16 @@
 import React from "react";
 import { selectTopic } from "./connect/actions"
 import { connect} from "react-redux"
+import { useState } from "react";
 
 function TopicSelection({ availableTopics, dispatch, topics }) {
     let topicsSelected = [];
+    const [p1, setP1] = useState("P1")
+    const [p2, setP2] = useState("P2")
 
     const handleSelection = (e) => {
         e.preventDefault();
-        const playerOne = e.target[0].value;
-        const playerTwo = e.target[1].value
-        dispatch(selectTopic(topicsSelected, playerOne, playerTwo));
+        dispatch(selectTopic(topicsSelected, p1, p2));
         
     }
 
@@ -36,9 +37,9 @@ function TopicSelection({ availableTopics, dispatch, topics }) {
             <p>Please enter the player's names and select at least 4 topics:</p>
             <div className="playersNames">
                 <label htmlFor="playerOne" >Player One: </label>
-                <input type="text" id="playerOne" required />
+                <input type="text" id="playerOne" onChange={(e)=>{setP1(e.target.value)}} value={p1} required />
                 <label htmlFor="playerTwo">Player Two: </label>
-                <input type="text" id="playerTwo" required />
+                <input type="text" id="playerTwo" onChange={(e) => { setP2(e.target.value) }} value={p2} required />
             </div>
             <ul className="topicsContainer">{availableTopics.map((topic, index) => {
                 return (

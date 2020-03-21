@@ -6,7 +6,7 @@ import { setQuestion } from "./connect/actions";
 function Roulette({ topics, player, dispatch }) {
 
     const [spinning, setSpinning] = useState(false);
-    const [category, setCategory] = useState(topics[0]);
+    const [category, setCategory] = useState(topics[0] || ["popo"]);
     const [difficulty, setDifficulty] = useState("easy")
 
     
@@ -57,7 +57,7 @@ function Roulette({ topics, player, dispatch }) {
     return (
         <div className="rouletteDiv">
             <h2>{`${player}'s turn`}</h2>
-            <p className="rouletteCategory">{`Category: ${category.name}`}</p>
+            <p className="rouletteCategory"> <span>Category:</span> {`${category.name}`}</p>
             <div className="rouletteRadioButtons">
                 <input type="radio" name="easy" value="easy" id="easy" checked={difficulty === "easy"} onChange={handleRadio} />
                 <label htmlFor="easy">Easy (1pt)</label>

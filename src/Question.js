@@ -3,7 +3,7 @@ import {answer} from "./connect/actions"
 import { connect } from "react-redux"
 import Alert from "./Alert"
 
-function Question({ question, dispatch }) {
+function Question({ question, dispatch, player }) {
     
     const [points, setPoints] = useState();
     const answers = [...question.incorrect_answers, question.correct_answer].sort(function () {
@@ -41,7 +41,7 @@ function Question({ question, dispatch }) {
     return (
         <div className="questionContainer">
             <h2>{`Category: ${unescape(question.category)}`}</h2>
-            <p>{`Difficulty: ${question.difficulty}`}</p>
+            {/* <p>{`Difficulty: ${question.difficulty}`}</p> */}
             <h3>{unescape(question.question)}</h3>
             <div className="options">
 
@@ -50,14 +50,14 @@ function Question({ question, dispatch }) {
                 })}
             </div>
             
-            {points !== undefined ? <Alert message={points === 0 ? "Your answer was incorrect!" : "CORRECT!"} button="OK" onClick={next} /> : ""}
+            {points !== undefined ? <Alert message={points === 0 ? `${player}Your answer was incorrect!` : `CORRECT! Great job ${player}! You win ${points} ${points>1?"points":"point"}`} button="OK" onClick={next} /> : ""}
         </div>
     )
 }
 
 const mapStateToProps = state => {
     return {
-
+        player: state.players[state.player].name
     }
 }
 

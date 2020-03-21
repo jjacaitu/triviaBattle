@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import './App.css';
 
 import TopicSelection from "./TopicsSelection";
 import GameBoard from "./GameBoard"
-
+import Header from "./Header"
+import Footer from "./Footer"
 
 
 import {connect } from "react-redux"
@@ -30,7 +31,12 @@ function App({ topics, players, question, turn  }) {
   
 
   return (
-    loading ? <p>loading..</p> : topics.length ? <GameBoard/> : <TopicSelection availableTopics={availableTopics} />
+    <Fragment>
+      <Header/>
+      {loading ? <p>loading..</p> : topics.length ? <GameBoard /> : <TopicSelection availableTopics={availableTopics} />}
+      <Footer/>
+
+    </Fragment>
 
      
     

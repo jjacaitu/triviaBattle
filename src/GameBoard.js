@@ -15,10 +15,10 @@ function GameBoard({ question, turn, playerOneScore, playerTwoScore, playerOne, 
     }
     
     return (
-        <div>
+        <div className="gameBoard">
             <ScoreBoard/>
             <Roulette />
-            {question !== null ? <Question question={question} /> : turn !== 2 ? "" : <Alert message={playerOneScore === playerTwoScore ? "Nobody Wins!" : playerOneScore > playerTwoScore ? `${playerOne} Wins` : `${playerTwo} Wins`} button="Restart" onClick={restartGame}/>} 
+            {question !== null ? <Question question={question} /> : turn !== 6 ? "" : <Alert message={playerOneScore === playerTwoScore ? "It's a tie! Play again and see who wins!" : playerOneScore > playerTwoScore ? `${playerOne} Wins !!! Hey ${playerTwo} can you beat ${playerOne}? Ask for a REMATCH!` : `${playerTwo} Wins!!! Hey ${playerOne} can you beat ${playerTwo}? Ask for a REMATCH!`} button="Restart" onClick={restartGame}/>} 
 
         </div>
     )

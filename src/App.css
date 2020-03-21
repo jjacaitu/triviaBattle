@@ -14,13 +14,15 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 :root {
   --background: #1c1b4d;
   --brightColour: #b80e65;
-  --lowColor: #1791b1;
+  --lowColor: #3573a5;
   --darkColour: #004445;
+  
 }
 
 html {
   color: white;
   background-color: var(--background);
+  
 }
 
 .App-logo {
@@ -28,23 +30,31 @@ html {
   pointer-events: none;
 }
 
-ul, li {
+ul, li,p {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
+p {
+  padding: 5px;
+}
+
 input {
-  border-radius: 20px;
+  border-radius: 5px;
   border: solid 1px;
   padding: 5px 10px;
 }
 
+.gameBoard {
+  min-height: 85vh;
+}
+
 button {
-  margin-top: 20px;
+  margin: 20px 0;
   color: white;
   width: 30%;
-  border-radius: 20px;
+  border-radius: 5px;
   padding: 10px 0px;
   background-color: var(--lowColor);
   border: none;
@@ -64,6 +74,7 @@ input[type="radio"]:checked + label {
   box-shadow: 0px 0px  5px 3px var(--background);
   background-color: gold;
   color: var(--background);
+  font-weight: bolder;
 }
 
 
@@ -85,13 +96,30 @@ label {
   
 }
 
+body {
+  font-family: 'Bellota Text', cursive;
+}
+
+h1 {
+  font-family: 'Monoton', cursive;
+  color: gold;
+  text-align: center;
+  border-bottom: 3px solid;
+  margin: 0;
+  
+}
+
+h1 span{
+  color: rgb(255, 0, 106);
+}
+
 .selectTopicDiv {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  /* height: 80vh; */
   /* padding: 20px; */
   /* margin: auto; */
   background-color: var(--background);
@@ -121,7 +149,7 @@ label {
 }
 
 .topicsContainer {
-  width: 70%;
+  width: 80%;
   display: grid;
   grid-template-columns: repeat(3, 2fr);
   gap: 20px;
@@ -129,15 +157,16 @@ label {
 }
 
 .topicsContainer label {
-  border-radius: 20px;
+  border-radius: 5px;
   padding: 5px;
   border: solid 1px ;
+ 
   
 }
 
 .topicElement {
   /* border: 1px solid black;
-  border-radius: 20px; */
+  border-radius: 5px; */
   
 }
 
@@ -159,17 +188,19 @@ label {
   padding: 20px;
   text-align: center;
   box-shadow: 0px 0px 30px white;
+   border-radius: 5px;
 }
 
-.questionContainer p{
-  color: var(--background);
-  font-weight: 900;
-}
+
 
 .questionContainer h3 {
   font-size: 2rem;
-  color: var(--brightColour);
+  color: gold;
   text-shadow: 1px 1px 1px var(--background);
+  /* text-align: start; */
+  padding:  0px 20px;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .options {
@@ -190,12 +221,14 @@ label {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 60%;
   margin: auto;
   background-color: var(--lowColor);
   padding: 20px;
   box-shadow: 15px 15px 0px var(--brightColour);
+  border-radius: 5px;
 }
+
 
 .rouletteCategory {
   border: solid;
@@ -203,9 +236,23 @@ label {
   width: 500px;
   padding: 20px;
   background-color: white;
+  font-weight: bolder;
 }
 
-.rouletteDiv button, .questionContainer button {
+.rouletteCategory span {
+  color: var(--brightColour);
+  
+  text-transform: uppercase;
+  
+}
+/* .questionContainer button {
+  border: solid 2px var(--lowColor);
+  background-color: var(--background);
+  width: 50%;
+  margin: 5px;
+} */
+
+.rouletteDiv button, .questionContainer button{
   width: 50%;
   margin: 5px;
   background-color: var(--background);
@@ -214,7 +261,7 @@ label {
 
 .rouletteRadioButtons {
   display: flex;
-  width: 60%;
+  width: 70%;
   padding: 20px;
 }
 
@@ -225,7 +272,8 @@ label {
   border: solid var(--background) 2px;
   margin: 5px;
   padding: 20px;
-  border-radius: 20px;
+  border-radius: 5px;
+  font-weight: normal;
 }
 
 .alert {
@@ -236,18 +284,26 @@ label {
   box-shadow: 0px 0px 115px var(--background);
   height: 40vh;
   transform: translate(-50%,-50%);
-  border: solid;
+  border: solid gold;
   background-color: var(--brightColour);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
 
 }
 
 .alert p {
   font-size: 2rem;
   color: white;
+   font-family: 'Monoton', cursive;
+}
+
+footer p{
+  text-align: center;
+  border-top: solid 2px gold;
+  padding-top: 5px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
