@@ -1,6 +1,7 @@
 import React, { useState} from "react";
 import { connect } from "react-redux";
 import { setQuestion } from "../connect/actions";
+import click from "../click.mp3";
 
 
 function Roulette({ topics, player, dispatch }) {
@@ -35,7 +36,9 @@ function Roulette({ topics, player, dispatch }) {
         let i = 0;
         let categorySelected = "";
         const randomNumber = Math.floor(Math.random() * 3000 + 1000);
+        const audio = new Audio(click);
         const interval = setInterval(() => {
+            audio.play();
             categorySelected = topics[i]
             setCategory(categorySelected)
             if (i === topics.length - 1) {
@@ -47,13 +50,11 @@ function Roulette({ topics, player, dispatch }) {
 
         setTimeout(() => {
             clearInterval(interval)
-            
+            audio.pause();
             getQuestion(categorySelected, difficulty)
            
         }, randomNumber);
     }
-
-    console.log(player)
 
     return (
         <div className="rouletteDiv">

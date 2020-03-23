@@ -284,6 +284,40 @@ label {
   margin-top: 50px;
 }
 
+.timer {
+  color: gold;
+  font-size: 1.5rem;
+  text-align: start;
+  font-weight: bolder;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+
+  
+}
+
+.timer i {
+  animation: heartbeat 1s ease-in-out infinite both;
+  margin-right: 10px;
+}
+
+.timerContainer {
+  width: 100%;
+  border: solid 1px;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.timerInner {
+  
+  transition: all 0.5s;
+  height: 50px;
+}
+
+
 /* Score Board Styling */
 
 
@@ -440,6 +474,10 @@ footer p{
     grid-template-columns: repeat(1, 2fr);
   }
 
+  .questionContainer h3 {
+    font-size: 1rem;
+  }
+
 }
 
 /* ----------------------------------------------
@@ -454,6 +492,76 @@ footer p{
  * animation jello-horizontal
  * ----------------------------------------
  */
+
+@-webkit-keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(1.01);
+            transform: scale(1.01);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(1.08);
+            transform: scale(1.08);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.97);
+            transform: scale(0.97);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+@keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+            transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+            transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+            transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+
 @-webkit-keyframes jello-horizontal {
   0% {
     -webkit-transform: scale3d(1, 1, 1);
