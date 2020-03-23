@@ -22,12 +22,26 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 html {
   color: white;
   background-color: var(--background);
+  font-size: 125%;
   
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: 'Bellota Text', cursive;
+}
+
+h1 {
+  font-family: 'Monoton', cursive;
+  color: gold;
+  text-align: center;
+  border-bottom: 3px solid;
+  margin: 0 auto;
+  width: 80%;
+  
+}
+
+h1 span{
+  color: rgb(255, 0, 106);
 }
 
 ul, li,p, h4 {
@@ -40,20 +54,7 @@ p {
   padding: 5px;
 }
 
-.rouletteDiv h2 {
-  color: gold;
-  font-size: 2rem;
-}
-
-input {
-  border-radius: 5px;
-  border: solid 1px;
-  padding: 5px 10px;
-}
-
-.gameBoard {
-  min-height: 85vh;
-}
+/* Buttons and inputs */
 
 button {
   margin: 20px 0;
@@ -67,16 +68,25 @@ button {
   transition: all 0.5s;
 }
 
+button:disabled {
+  opacity: 0.5;
+}
+
+input {
+  border-radius: 5px;
+  border: solid 1px;
+  padding: 5px 10px;
+}
+
+
+
+
 button:hover:enabled, .rouletteDiv button:hover:enabled, .questionContainer button:hover:enabled, button:focus:enabled, .rouletteDiv button:focus:enabled, .questionContainer button:focus:enabled {
   background-color: gold;
   box-shadow: 5px 5px 0px var(--background);
   color: var(--background);
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: bolder;
-}
-
-button:disabled {
-  opacity: 0.5;
 }
 
 input[type="checkbox"]:checked + label, input[type="checkbox"] + label:hover, input[type="checkbox"]:focus + label {
@@ -95,8 +105,6 @@ input[type="radio"]:enabled:not(:checked):focus + label {
   background-color: white;
 }
 
-
-
 input[type="checkbox"], input[type="radio"] {
   opacity: 0;
 }
@@ -104,6 +112,7 @@ input[type="checkbox"], input[type="radio"] {
 input[type="checkbox"] + label {
   background-color: var(--brightColour);
 }
+
 label {
   cursor: pointer;
   width: 100%;
@@ -114,145 +123,27 @@ label {
   
 }
 
-body {
-  font-family: 'Bellota Text', cursive;
-}
-
-h1 {
-  font-family: 'Monoton', cursive;
-  color: gold;
-  text-align: center;
-  border-bottom: 3px solid;
-  margin: 0;
-  
-}
-
-h1 span{
-  color: rgb(255, 0, 106);
-}
-
-.selectTopicDiv {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  /* height: 80vh; */
-  /* padding: 20px; */
-  /* margin: auto; */
-  background-color: var(--background);
-
-  
-}
-
-
-
-.spinning > li {
-  transform: translateY(-75px);
-  transition: all 0.5s;
-}
-
-.playersNames {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 60%;
-  padding: 20px;
-
-}
-
-.playersNames label, .playersNames input {
-  width: 50%;
-  
-}
-
-.topicsContainer {
-  width: 80%;
-  display: grid;
-  grid-template-columns: repeat(3, 2fr);
-  gap: 20px;
-  margin-bottom: 20px;
-}
-
-.topicsContainer label {
-  border-radius: 5px;
-  padding: 5px;
-  border: solid 1px ;
- 
-  
-}
-
-.topicElement {
-  /* border: 1px solid black;
-  border-radius: 5px; */
-  
-}
-
-.playersScores {
-  width: 60%;
-  display: flex;
-  justify-content: space-around;
-}
-
-.questionContainer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 80%;
-  height: 80vh;
-  transform: translate(-50%,-50%);
-  border: solid;
-  background-color: var(--lowColor);
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0px 0px 30px gold;
-   border-radius: 5px;
-}
-
-
-
-.questionContainer h3 {
-  font-size: 2rem;
-  color: gold;
-  text-shadow: 1px 1px 1px var(--background);
-  /* text-align: start; */
-  padding:  0px 20px;
+.wrapper {
   width: 80%;
   margin: 0 auto;
 }
 
-.options {
-  margin-top: 50px;
+/* GameBoard  */
+
+.gameBoard {
+  min-height: 85vh;
 }
 
-.scoreBoard {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+/* Roulette styling */
 
-}
-
-.scoreBoard span {
+.rouletteDiv h2 {
   color: gold;
-}
-
-.scoreBoard h3 {
-  color: gold;
-  font-size: 1.5rem;
-}
-
-.scoreBoard p {
   font-size: 1.3rem;
-  margin-bottom: 20px;
 }
 
-.scoreBoard p:nth-child(2){
-  font-size: 2rem;
-  font-weight: bolder;
-  color: var(--brightColour);
-  /* text-shadow: 0px 0px 5px white; */
+.spinning > li {
+  transform: translateY(-75px);
+  transition: all 0.5s;
 }
 
 .rouletteDiv {
@@ -260,8 +151,8 @@ h1 span{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 60%;
-  margin: auto;
+  width: 100%;
+  margin: 0 auto 30px;
   background-color: var(--lowColor);
   padding: 20px;
   box-shadow: 15px 15px 0px var(--brightColour);
@@ -284,12 +175,6 @@ h1 span{
   text-transform: uppercase;
   
 }
-/* .questionContainer button {
-  border: solid 2px var(--lowColor);
-  background-color: var(--background);
-  width: 50%;
-  margin: 5px;
-} */
 
 .rouletteDiv button, .questionContainer button{
   width: 50%;
@@ -298,11 +183,9 @@ h1 span{
 }
 
 
-
-
 .rouletteRadioButtons {
   display: flex;
-  width: 70%;
+  width: 80%;
   padding: 20px;
 }
 
@@ -316,6 +199,126 @@ h1 span{
   border-radius: 5px;
   font-weight: normal;
 }
+
+/* Topic Selection Styling */
+
+.selectTopicDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: var(--background);
+}
+
+.topicsContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.topicsContainer label {
+  border-radius: 5px;
+  padding: 5px;
+  border: solid 1px ;
+ 
+  
+}
+
+.topicElement {
+  font-size: 0.8rem;
+  
+}
+
+.playersNames {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+
+}
+
+.playersNames input:nth-child(2) {
+  margin-right: 50px;
+}
+
+.playersNames label {
+  text-align: start;
+  padding-right: 10px;
+  height: 31px; 
+}
+
+/* Questions stylig */
+
+.questionContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  transform: translate(-50%,-50%);
+  border: solid;
+  background-color: var(--lowColor);
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0px 0px 30px gold;
+   border-radius: 5px;
+}
+
+
+
+.questionContainer h3 {
+  font-size: 1.5rem;
+  color: gold;
+  text-shadow: 1px 1px 1px var(--background);
+  /* text-align: start; */
+  /* padding:  0px 20px; */
+  width: 100%;
+  /* margin: 0 auto; */
+}
+
+.options {
+  margin-top: 50px;
+}
+
+/* Score Board Styling */
+
+
+.playersScores {
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.scoreBoard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.scoreBoard span {
+  color: gold;
+}
+
+.scoreBoard h3 {
+  color: gold;
+  font-size: 1.3rem;
+}
+
+
+.scoreBoard p:nth-child(2){
+  font-size: 1.5rem;
+  font-weight: bolder;
+  color: var(--brightColour);
+  /* text-shadow: 0px 0px 5px white; */
+}
+
+/* Alert Styling */
 
 .alert {
   position: absolute;
@@ -337,43 +340,103 @@ h1 span{
 }
 
 .alert p {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: white;
-   /* font-family: 'Monoton', cursive; */
 }
+
+/* Footer */
 
 footer p{
   text-align: center;
   border-top: solid 2px gold;
   padding-top: 5px;
+  margin: 0 auto;
+  width: 80%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Media Queries */
+
+@media (max-width: 960px){
+  .rouletteDiv {
+    font-size: 0.8rem;
+  }
+
+  .rouletteRadioButtons {
+    width: 100%;
+    padding: 20px 0
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: var(--lowColor);
+@media (max-width : 800px){
+  .playersNames {
+    flex-wrap: wrap;
+  }
+
+  .playersNames input {
+    width: 70%;
+  }
+
+  .playersNames input:nth-child(2), .playersNames label:nth-child(1) {
+    margin: 0px 0 20px;
+  }
+
+  .playersNames label {
+    width: 25%;
+  }
+
+  .wrapper {
+    width: 85%;
+  }
+
+  .alert {
+    width: 60%;
+  }
 }
 
-.App-link {
-  color: #61dafb;
+@media (max-width: 650px) {
+  .topicsContainer {
+    grid-template-columns: repeat(2, 2fr);
+  }
+
+  .questionContainer {
+    font-size: 0.8rem;
+  }
+
+  .questionContainer button {
+    width: 90%;
+  }
+
+  .rouletteCategory {
+    width: 90%;
+    height: 100px;
+  }
+
+  .rouletteRadioButtons {
+    flex-direction: column;
+  }
+
+  .rouletteRadioButtons label {
+    width: 100%;
+  }
+  .alert {
+    width: 90%;
+    
+  }
+
+  .alert p {
+    font-size: 1.2rem;
+  }
+
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 400px) {
+
+  .rouletteDiv {
+    box-shadow: none;
   }
-  to {
-    transform: rotate(360deg);
+  .topicsContainer {
+    grid-template-columns: repeat(1, 2fr);
   }
+
 }

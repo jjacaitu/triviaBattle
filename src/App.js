@@ -1,10 +1,10 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import './App.css';
 
-import TopicSelection from "./TopicsSelection";
-import GameBoard from "./GameBoard"
-import Header from "./Header"
-import Footer from "./Footer"
+import TopicSelection from "./components/TopicsSelection";
+import GameBoard from "./components/GameBoard"
+import Header from "./components/Header"
+import Footer from "./components/Footer"
 
 
 import {connect } from "react-redux"

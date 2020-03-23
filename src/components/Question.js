@@ -1,17 +1,25 @@
 import React, { useState } from "react";
-import {answer} from "./connect/actions"
+import {answer} from "../connect/actions"
 import { connect } from "react-redux"
 import Alert from "./Alert"
 
 function Question({ question, dispatch, player }) {
     
     const [points, setPoints] = useState();
+
+    // store all the answers, correct and incorrect and shuffle them
+
     const answers = [...question.incorrect_answers, question.correct_answer].sort(function () {
         return .5 - Math.random();
     });
 
+    // Handle answer submition, if the selected answer is correct add points if not give 0 points.
+
     const handleAnswer = (e) => {
         const answerSelected = e.target.value;
+
+        // Set amount of point depending on the difficulty of the question
+
         if (answerSelected === question.correct_answer) {
             switch (question.difficulty) {
                 case "easy":
@@ -26,13 +34,11 @@ function Question({ question, dispatch, player }) {
             }
         } else {
             setPoints(0);
-        }
-        
-        console.log(points);
-        
+        }        
     }
 
     const next = () => {
+        // dispatch points to the state
         dispatch(answer(points));
     }
 
@@ -41,7 +47,6 @@ function Question({ question, dispatch, player }) {
     return (
         <div className="questionContainer">
             <h2>{`Category: ${unescape(question.category)}`}</h2>
-            {/* <p>{`Difficulty: ${question.difficulty}`}</p> */}
             <h3>{unescape(question.question)}</h3>
             <div className="options">
 

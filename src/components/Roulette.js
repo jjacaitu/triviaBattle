@@ -1,6 +1,6 @@
 import React, { useState} from "react";
 import { connect } from "react-redux";
-import { setQuestion } from "./connect/actions";
+import { setQuestion } from "../connect/actions";
 
 
 function Roulette({ topics, player, dispatch }) {

@@ -1,5 +1,6 @@
 import React from "react";
 
+// Component for pop-up alerts
 
 function Alert({ message, button, onClick }) {
     return (
