@@ -10,7 +10,7 @@ function ScoreBoard({ playerOneName, playerTwoName, playerOneScore, playerTwoSco
                 
                 <p> <span>{`${playerOneName}: `}</span> {`${playerOneScore}`}</p>
                 <p>VS</p>
-                <p><span>{`${playerOneName}: `}</span>{`${playerTwoScore}`}</p>
+                <p><span>{`${playerTwoName}: `}</span>{`${playerTwoScore}`}</p>
 
             </div>
         </div>

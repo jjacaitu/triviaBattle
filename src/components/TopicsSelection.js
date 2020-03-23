@@ -73,7 +73,7 @@ function TopicSelection({ availableTopics, dispatch}) {
                     )
                 })}</ul>
                 {alert ? <Alert message="Please select at least 4 topics from the list!" button="OK" onClick={()=>{setAlert(false)}}/> : ""}
-                <button type="submit">START</button>
+                <button disabled={alert} type="submit">START</button>
             </form>
         </div>
         
