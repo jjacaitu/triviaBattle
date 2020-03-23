@@ -1,22 +1,26 @@
 {
   "files": {
-    "main.css": "/triviaBattle/static/css/main.acd56112.chunk.css",
-    "main.js": "/triviaBattle/static/js/main.5213ab57.chunk.js",
-    "main.js.map": "/triviaBattle/static/js/main.5213ab57.chunk.js.map",
+    "main.css": "/triviaBattle/static/css/main.85eba8f1.chunk.css",
+    "main.js": "/triviaBattle/static/js/main.53204413.chunk.js",
+    "main.js.map": "/triviaBattle/static/js/main.53204413.chunk.js.map",
     "runtime-main.js": "/triviaBattle/static/js/runtime-main.e47d359c.js",
     "runtime-main.js.map": "/triviaBattle/static/js/runtime-main.e47d359c.js.map",
-    "static/js/2.85b48de6.chunk.js": "/triviaBattle/static/js/2.85b48de6.chunk.js",
-    "static/js/2.85b48de6.chunk.js.map": "/triviaBattle/static/js/2.85b48de6.chunk.js.map",
+    "static/js/2.26e2cec7.chunk.js": "/triviaBattle/static/js/2.26e2cec7.chunk.js",
+    "static/js/2.26e2cec7.chunk.js.map": "/triviaBattle/static/js/2.26e2cec7.chunk.js.map",
     "index.html": "/triviaBattle/index.html",
-    "precache-manifest.ef1ef3aa909caa0dbbb437f6f5cff4ee.js": "/triviaBattle/precache-manifest.ef1ef3aa909caa0dbbb437f6f5cff4ee.js",
+    "precache-manifest.b6a31a9647be15e0b02d82cc2208b56b.js": "/triviaBattle/precache-manifest.b6a31a9647be15e0b02d82cc2208b56b.js",
     "service-worker.js": "/triviaBattle/service-worker.js",
-    "static/css/main.acd56112.chunk.css.map": "/triviaBattle/static/css/main.acd56112.chunk.css.map",
-    "static/js/2.85b48de6.chunk.js.LICENSE.txt": "/triviaBattle/static/js/2.85b48de6.chunk.js.LICENSE.txt"
+    "static/css/main.85eba8f1.chunk.css.map": "/triviaBattle/static/css/main.85eba8f1.chunk.css.map",
+    "static/js/2.26e2cec7.chunk.js.LICENSE.txt": "/triviaBattle/static/js/2.26e2cec7.chunk.js.LICENSE.txt",
+    "static/media/click.mp3": "/triviaBattle/static/media/click.8d084854.mp3",
+    "static/media/ding.mp3": "/triviaBattle/static/media/ding.87b25ba2.mp3",
+    "static/media/jeopardy.mp3": "/triviaBattle/static/media/jeopardy.0b4493b3.mp3",
+    "static/media/wrong.mp3": "/triviaBattle/static/media/wrong.093eed4f.mp3"
   },
   "entrypoints": [
     "static/js/runtime-main.e47d359c.js",
-    "static/js/2.85b48de6.chunk.js",
-    "static/css/main.acd56112.chunk.css",
-    "static/js/main.5213ab57.chunk.js"
+    "static/js/2.26e2cec7.chunk.js",
+    "static/css/main.85eba8f1.chunk.css",
+    "static/js/main.53204413.chunk.js"
   ]
 }
