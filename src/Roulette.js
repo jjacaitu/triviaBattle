@@ -24,6 +24,7 @@ function Roulette({ topics, player, dispatch }) {
         console.log(json.results[0])
         
         dispatch(setQuestion(json.results[0]));
+        setSpinning(false)
         
         
     }
@@ -46,7 +47,7 @@ function Roulette({ topics, player, dispatch }) {
 
         setTimeout(() => {
             clearInterval(interval)
-            setSpinning(false)
+            
             getQuestion(categorySelected, difficulty)
            
         }, randomNumber);

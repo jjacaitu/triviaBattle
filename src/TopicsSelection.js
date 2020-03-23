@@ -2,15 +2,23 @@ import React from "react";
 import { selectTopic } from "./connect/actions"
 import { connect} from "react-redux"
 import { useState } from "react";
+import Alert from "./Alert" 
 
-function TopicSelection({ availableTopics, dispatch, topics }) {
-    let topicsSelected = [];
+function TopicSelection({ availableTopics, dispatch}) {
+    // let topicsSelected = [];
+    const [topicsSelected, setTopics] = useState([])
     const [p1, setP1] = useState("P1")
     const [p2, setP2] = useState("P2")
+    const [alert, setAlert] = useState(false)
 
     const handleSelection = (e) => {
         e.preventDefault();
-        dispatch(selectTopic(topicsSelected, p1, p2));
+        // console.log(topics)
+        if(topicsSelected.length >= 4){
+            dispatch(selectTopic(topicsSelected, p1, p2));
+        }else{
+            setAlert(true)
+        }
         
     }
 
@@ -21,15 +29,21 @@ function TopicSelection({ availableTopics, dispatch, topics }) {
         for (let i = 0; i < topicsSelected.length; i++){
             if (topicsSelected[i].id === availableTopics[index].id) {
                 exists = true;
-                topicsSelected.splice(i, 1);
+                const topics = [...topicsSelected];
+                topics.splice(i, 1)
+                setTopics(topics);
                 return
             }
         }
 
         if (!exists) {
-            topicsSelected.push(availableTopics[index])   
+            const topics = [...topicsSelected];
+            topics.push(availableTopics[index])
+            setTopics(topics);   
         } 
-        console.log(topicsSelected)
+
+        // setTopics(topicsSelected);
+        
     }
 
     return (
@@ -44,13 +58,15 @@ function TopicSelection({ availableTopics, dispatch, topics }) {
             <ul className="topicsContainer">{availableTopics.map((topic, index) => {
                 return (
                     <li className="topicElement" key={index}>
-                        <input onChange={handleChange} type="checkbox" name={topic.name} id={topic.name} value={index} style={{display:"none"}} />
-                        <label htmlFor={topic.name}>{topic.name}</label>
+                        <input tabIndex={0} onChange={handleChange} type="checkbox" name={topic.name} id={topic.name} value={index} />
+                        <label  htmlFor={topic.name}>{topic.name}</label>
                     </li>
                 )
             })}</ul>
+            {alert ? <Alert message="Please select at least 4 topics from the list!" button="OK" onClick={()=>{setAlert(false)}}/> : ""}
             <button type="submit">START</button>
         </form>
+        
     )
 }
 

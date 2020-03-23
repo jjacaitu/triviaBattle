@@ -30,7 +30,7 @@ html {
   pointer-events: none;
 }
 
-ul, li,p {
+ul, li,p, h4 {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -38,6 +38,11 @@ ul, li,p {
 
 p {
   padding: 5px;
+}
+
+.rouletteDiv h2 {
+  color: gold;
+  font-size: 2rem;
 }
 
 input {
@@ -59,28 +64,41 @@ button {
   background-color: var(--lowColor);
   border: none;
   box-shadow: 3px 3px 0px gold;
+  transition: all 0.5s;
+}
+
+button:hover:enabled, .rouletteDiv button:hover:enabled, .questionContainer button:hover:enabled, button:focus:enabled, .rouletteDiv button:focus:enabled, .questionContainer button:focus:enabled {
+  background-color: gold;
+  box-shadow: 5px 5px 0px var(--background);
+  color: var(--background);
+  font-size: 1.3rem;
+  font-weight: bolder;
 }
 
 button:disabled {
   opacity: 0.5;
 }
 
-input[type="checkbox"]:checked + label {
+input[type="checkbox"]:checked + label, input[type="checkbox"] + label:hover, input[type="checkbox"]:focus + label {
   box-shadow: 0px 0px  5px 3px var(--lowColor);
   color: gold;
 }
 
-input[type="radio"]:checked + label {
+input[type="radio"]:checked + label, input[type="radio"]:focus + label, input[type="radio"]:hover + label {
   box-shadow: 0px 0px  5px 3px var(--background);
   background-color: gold;
   color: var(--background);
   font-weight: bolder;
 }
 
+input[type="radio"]:enabled:not(:checked):focus + label {
+  background-color: white;
+}
+
 
 
 input[type="checkbox"], input[type="radio"] {
-  display: none;
+  opacity: 0;
 }
 
 input[type="checkbox"] + label {
@@ -187,7 +205,7 @@ h1 span{
   background-color: var(--lowColor);
   padding: 20px;
   text-align: center;
-  box-shadow: 0px 0px 30px white;
+  box-shadow: 0px 0px 30px gold;
    border-radius: 5px;
 }
 
@@ -207,13 +225,34 @@ h1 span{
   margin-top: 50px;
 }
 
-.ScoreBoard {
+.scoreBoard {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
+}
+
+.scoreBoard span {
+  color: gold;
+}
+
+.scoreBoard h3 {
+  color: gold;
+  font-size: 1.5rem;
+}
+
+.scoreBoard p {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.scoreBoard p:nth-child(2){
+  font-size: 2rem;
+  font-weight: bolder;
+  color: var(--brightColour);
+  /* text-shadow: 0px 0px 5px white; */
 }
 
 .rouletteDiv {
@@ -259,6 +298,8 @@ h1 span{
 }
 
 
+
+
 .rouletteRadioButtons {
   display: flex;
   width: 70%;
@@ -288,16 +329,17 @@ h1 span{
   background-color: var(--brightColour);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   border-radius: 5px;
+  padding: 30px;
 
 }
 
 .alert p {
   font-size: 2rem;
   color: white;
-   font-family: 'Monoton', cursive;
+   /* font-family: 'Monoton', cursive; */
 }
 
 footer p{

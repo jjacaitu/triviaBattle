@@ -46,11 +46,11 @@ function Question({ question, dispatch, player }) {
             <div className="options">
 
                 {answers.map(answer => {
-                    return <button onClick={handleAnswer} value={answer}>{unescape(answer)}</button>
+                    return <button disabled={points >= 0?true:false} onClick={handleAnswer} value={answer}>{unescape(answer)}</button>
                 })}
             </div>
             
-            {points !== undefined ? <Alert message={points === 0 ? `${player}Your answer was incorrect!` : `CORRECT! Great job ${player}! You win ${points} ${points>1?"points":"point"}`} button="OK" onClick={next} /> : ""}
+            {points !== undefined ? <Alert message={points === 0 ? `${player} Your answer was incorrect!` : `CORRECT ${player}! You win ${points} ${points>1?"points.":"point."}`} button="OK" onClick={next} /> : ""}
         </div>
     )
 }

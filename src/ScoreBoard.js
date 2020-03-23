@@ -4,11 +4,13 @@ import { connect } from "react-redux";
 
 function ScoreBoard({ playerOneName, playerTwoName, playerOneScore, playerTwoScore, turn}){
     return(
-        <div className="ScoreBoard">
-            <p>{`Current turn: ${turn}`}</p>
+        <div className="scoreBoard">
+            <h3>{turn < 5 ? `Turns Remaning: ${6 - turn}` : "Last Turn!"}</h3>
             <div className="playersScores">
-                <p>{`${playerOneName}: ${playerOneScore}`}</p>
-                <p>{`${playerTwoName}: ${playerTwoScore}`}</p>
+                
+                <p> <span>{`${playerOneName}: `}</span> {`${playerOneScore}`}</p>
+                <p>VS</p>
+                <p><span>{`${playerOneName}: `}</span>{`${playerTwoScore}`}</p>
 
             </div>
         </div>
