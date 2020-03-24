@@ -2,13 +2,15 @@ import React, { useState} from "react";
 import { connect } from "react-redux";
 import { setQuestion } from "../connect/actions";
 import click from "../click.mp3";
+import Loading from "./Loading"
 
 
 function Roulette({ topics, player, dispatch }) {
 
     const [spinning, setSpinning] = useState(false);
-    const [category, setCategory] = useState(topics[0] || ["popo"]);
-    const [difficulty, setDifficulty] = useState("easy")
+    const [category, setCategory] = useState(topics[0]);
+    const [difficulty, setDifficulty] = useState("easy");
+    const [loading, setLoading] = useState(false)
 
     
     const handleRadio = (e) => {
@@ -16,16 +18,19 @@ function Roulette({ topics, player, dispatch }) {
     }
     
     const getQuestion = async (category, difficulty) => {
+
+        setLoading(true)
+
         const url = `https://opentdb.com/api.php?amount=1&category=${category.id}&difficulty=${difficulty}&type=multiple&encode=url3986`;
         
         const data = await fetch(url);
         
         const json = await data.json();
-
-        console.log(json.results[0])
         
         dispatch(setQuestion(json.results[0]));
         setSpinning(false)
+        setLoading(false)
+        
         
         
     }
@@ -58,14 +63,15 @@ function Roulette({ topics, player, dispatch }) {
 
     return (
         <div className="rouletteDiv">
+            {loading && <Loading/>}
             <h2>{`${player}'s turn`}</h2>
             <p className="rouletteCategory"> <span>Category:</span> {`${category.name}`}</p>
             <div className="rouletteRadioButtons">
-                <input type="radio" name="easy" value="easy" id="easy" checked={difficulty === "easy"} onChange={handleRadio} />
-                <label htmlFor="easy">Easy (1pt)</label>
-                <input type="radio" name="medium" id="medium" value="medium" checked={difficulty === "medium"} onChange={handleRadio}/>
+                <input disabled={spinning} type="radio" name="easy" value="easy" id="easy" checked={difficulty === "easy"} onChange={handleRadio} />
+                <label  htmlFor="easy">Easy (1pt)</label>
+                <input disabled={spinning} type="radio" name="medium" id="medium" value="medium" checked={difficulty === "medium"} onChange={handleRadio}/>
                 <label htmlFor="medium">Medium (2pt)</label>
-                <input type="radio" name="hard" id="hard" value="hard" checked={difficulty === "hard"} onChange={handleRadio} />
+                <input disabled={spinning} type="radio" name="hard" id="hard" value="hard" checked={difficulty === "hard"} onChange={handleRadio} />
                 <label htmlFor="hard">Hard (3pt)</label>
 
             </div>

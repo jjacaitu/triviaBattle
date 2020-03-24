@@ -5,6 +5,7 @@ import TopicSelection from "./components/TopicsSelection";
 import GameBoard from "./components/GameBoard"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
+import Loading from "./components/Loading"
 
 
 import {connect } from "react-redux"
@@ -33,7 +34,14 @@ function App({ topics, players, question, turn  }) {
   return (
     <Fragment>
       <Header/>
-      {loading ? <p>loading..</p> : topics.length ? <GameBoard /> : <TopicSelection availableTopics={availableTopics} />}
+      {loading ?
+        <Loading/>
+        :
+        topics.length
+          ?
+          <GameBoard />
+          :
+          <TopicSelection availableTopics={availableTopics} />}
       <Footer/>
 
     </Fragment>

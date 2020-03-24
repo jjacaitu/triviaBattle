@@ -57,7 +57,7 @@ function TopicSelection({ availableTopics, dispatch}) {
     return (
         <div className="wrapper">
             <form className="selectTopicDiv" onSubmit={handleSelection}>
-                <p>Please enter the player's names and select at least 4 topics:</p>
+                <p>Please enter the player's names and select at least 4 topics. Each player will answer 5 random questions related to the topics selected and the player with most points at the end of the game wins! The player can select the level of difficulty for each questions and will rcieve points depending on the level selected. Let the wisest player win!</p>
                 <div className="playersNames">
                     <label htmlFor="playerOne" >Player One: </label>
                     <input type="text" id="playerOne" onChange={(e)=>{setP1(e.target.value)}} value={p1} required />

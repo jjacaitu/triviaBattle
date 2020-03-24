@@ -68,7 +68,7 @@ button {
   transition: all 0.5s;
 }
 
-button:disabled {
+button:disabled, input[type="radio"]:disabled + label {
   opacity: 0.5;
 }
 
@@ -89,12 +89,12 @@ button:hover:enabled, .rouletteDiv button:hover:enabled, .questionContainer butt
   font-weight: bolder;
 }
 
-input[type="checkbox"]:checked + label, input[type="checkbox"] + label:hover, input[type="checkbox"]:focus + label {
+input[type="checkbox"]:checked + label, input[type="checkbox"]:enabled + label:hover, input[type="checkbox"]:enabled:focus + label {
   box-shadow: 0px 0px  5px 3px var(--lowColor);
   color: gold;
 }
 
-input[type="radio"]:checked + label, input[type="radio"]:focus + label, input[type="radio"]:hover + label {
+input[type="radio"]:checked + label, input[type="radio"]:enabled:focus + label, input[type="radio"]:enabled:hover + label {
   box-shadow: 0px 0px  5px 3px var(--background);
   background-color: gold;
   color: var(--background);
@@ -104,6 +104,7 @@ input[type="radio"]:checked + label, input[type="radio"]:focus + label, input[ty
 input[type="radio"]:enabled:not(:checked):focus + label {
   background-color: white;
 }
+
 
 input[type="checkbox"], input[type="radio"] {
   opacity: 0;
@@ -127,6 +128,88 @@ label {
   width: 80%;
   margin: 0 auto;
 }
+
+/* Loading */
+
+.loaderContainer {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--background);
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader,
+.loader:before,
+.loader:after {
+  background: gold;
+  -webkit-animation: load1 1s infinite ease-in-out;
+  animation: load1 1s infinite ease-in-out;
+  width: 1em;
+  height: 4em;
+}
+.loader {
+  color: gold;
+  text-indent: -9999em;
+  margin: 88px auto;
+  position: relative;
+  font-size: 11px;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+  position: static;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: gold;
+
+}
+.loader:before,
+.loader:after {
+  position: absolute;
+  top: 0;
+  content: '';
+}
+.loader:before {
+  left: -1.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 1.5em;
+}
+@-webkit-keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+@keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+
 
 /* GameBoard  */
 
@@ -210,6 +293,11 @@ label {
   align-items: center;
   width: 100%;
   background-color: var(--background);
+}
+
+.selectTopicDiv p {
+  margin-top: 20px;
+  color: gold;
 }
 
 .topicsContainer {
