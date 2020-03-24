@@ -377,6 +377,7 @@ label {
 .alert p {
   font-size: 1.5rem;
   color: white;
+  text-align: center;
 }
 
 /* Footer */
@@ -430,7 +431,7 @@ footer p{
 
 @media (max-width: 650px) {
   .topicsContainer {
-    grid-template-columns: repeat(2, 2fr);
+    grid-template-columns: repeat(1, 2fr);
   }
 
   .questionContainer {
@@ -469,9 +470,6 @@ footer p{
 
   .rouletteDiv {
     box-shadow: none;
-  }
-  .topicsContainer {
-    grid-template-columns: repeat(1, 2fr);
   }
 
   .questionContainer h3 {
