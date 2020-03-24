@@ -313,6 +313,7 @@ label {
   border-radius: 5px;
   padding: 5px;
   border: solid 1px ;
+  min-height: 40px;
  
   
 }
