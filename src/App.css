@@ -364,10 +364,7 @@ label {
   font-size: 1.5rem;
   color: gold;
   text-shadow: 1px 1px 1px var(--background);
-  /* text-align: start; */
-  /* padding:  0px 20px; */
   width: 100%;
-  /* margin: 0 auto; */
 }
 
 .options {
@@ -440,7 +437,7 @@ label {
   font-size: 1.5rem;
   font-weight: bolder;
   color: var(--brightColour);
-  /* text-shadow: 0px 0px 5px white; */
+  
 }
 
 /* Alert Styling */
